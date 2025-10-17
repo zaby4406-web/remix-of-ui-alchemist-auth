@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 60%;
+
+    --accent: 0 0% 10%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 10%;
+    --ring: 0 0% 100%;
+
+    --radius: 1rem;
+
+    /* Zalpha AI Design Tokens - Black & White Only */
+    --hero-gradient: linear-gradient(135deg, hsl(0 0% 0%) 0%, hsl(0 0% 10%) 50%, hsl(0 0% 0%) 100%);
+    --glass-bg: hsla(0 0% 100% / 0.1);
+    --glass-border: hsla(0 0% 100% / 0.2);
+    --input-bg: hsla(0 0% 100% / 0.95);
+    --auth-overlay-bg: hsla(0 0% 0% / 0.95);
+    --chain-node: hsla(0 0% 100% / 0.3);
+    --chain-line: hsla(0 0% 100% / 0.2);
+    
+    /* Gradients - Black & White Only */
+    --shimmer-gradient: linear-gradient(45deg, hsl(0 0% 100%) 0%, hsl(0 0% 97%) 20%, hsl(0 0% 100%) 40%, hsl(0 0% 91%) 60%, hsl(0 0% 100%) 80%, hsl(0 0% 94%) 100%);
+    --pricing-gradient-pro: linear-gradient(to bottom right, hsl(0 0% 100%), hsl(0 0% 80%));
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-hero: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    font-family: 'Inter', sans-serif;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .hero-gradient {
+    background: var(--hero-gradient);
+  }
+  
+  .hero-radial {
+    background: 
+      radial-gradient(circle at 30% 20%, hsla(0 0% 100% / 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 70% 80%, hsla(0 0% 100% / 0.05) 0%, transparent 50%);
+  }
+  
+  .glass-container {
+    backdrop-filter: blur(20px);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 25px 50px hsla(0 0% 0% / 0.1);
+  }
+  
+  .input-glass {
+    background: var(--input-bg);
+    backdrop-filter: blur(10px);
+    transition: var(--transition-smooth);
+  }
+  
+  .input-glass:focus-within {
+    background: hsl(0 0% 100%);
+    box-shadow: 0 20px 40px hsla(0 0% 0% / 0.1);
+    transform: translateY(-2px);
+  }
+  
+  .zalpha-title {
+    background: var(--shimmer-gradient);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 4s ease-in-out infinite;
+    text-shadow: 0 0 50px hsla(0 0% 100% / 0.5), 0 0 100px hsla(0 0% 100% / 0.2);
+    letter-spacing: -0.03em;
+  }
+  
+  .idea-text, .reality-text {
+    background: var(--shimmer-gradient);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 2s ease-in-out infinite;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+  }
+  
+  @keyframes shimmer {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
